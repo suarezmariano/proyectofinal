@@ -1,17 +1,15 @@
 const express = require('express');
 const app = express();
 
-const router = express.Router();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 //SERVER
-const port = 8080;
-const server = app.listen(port, () => {
-  console.log('servidor levantado en el puerto ' + port);
+const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT, () => {
+  console.log('Server running en port: ' + PORT);
 });
 
 server.on('error', (error) => console.log(`hubo un error ${error}`));
