@@ -7,9 +7,10 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 //SERVER
-const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => {
-  console.log('Server running en port: ' + PORT);
+const port = process.env.PORT || 8080;
+
+const server = app.listen(port, () => {
+  console.log('Server running on port: ' + port);
 });
 
 server.on('error', (error) => console.log(`hubo un error ${error}`));
@@ -19,7 +20,6 @@ const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
 
 app.use('/api/products', productsRouter);
-app.use('/api/cart', cartRouter);
 
 app.use((req, res, next) => {
   res.status(404).render('not-found');
