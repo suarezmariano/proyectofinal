@@ -7,6 +7,10 @@ const productsController = {
     let products = productsJson.all();
     return res.render('./products/list', { products });
   },
+
+  new: (req, res) => {
+    return res.render('./products/new');
+  },
 };
 
 module.exports = productsController;
