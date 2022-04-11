@@ -7,7 +7,10 @@ let manager = (name) => {
 
     readFile() {
       let file = fs.readFileSync(this.filePath, 'utf-8');
-      file ? JSON.parse(file) : [];
+      if (file) {
+        return JSON.parse(file);
+      }
+      return [];
     },
 
     writeFile(contents) {
@@ -17,6 +20,32 @@ let manager = (name) => {
 
     all() {
       return this.readFile();
+    },
+
+    generateId() {
+      let file = this.readFile();
+      let row = file.pop();
+
+      if (row) {
+        return ++row.id;
+      }
+
+      return 1;
+    },
+
+    find(id) {
+      let file = this.readFile();
+      return file.find((row) => row.id == id);
+    },
+
+    create(row) {
+      let file = this.readFile();
+      row.id = this.generateId();
+      file.push(row);
+
+      this.writeFile(file);
+
+      return row.id;
     },
   };
 };
