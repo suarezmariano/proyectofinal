@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("../partials/head.ejs") %>
-  <body></body>
+  <body>
+    <div class="container">
+      <% for (let i = 0; i< products.length; i++) { %>
+      <div class="card" style="width: 18rem">
+        <img src="<%= products[i].image %>" class="card-img-top" alt="image" />
+        <div class="card-body">
+          <h5 class="card-title"><%= products[i].name %></h5>
+          <p class="card-text"><%= products[i].description %></p>
+          <a href="./list" class="btn btn-primary">Volver</a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </body>
 </html>

@@ -5,7 +5,7 @@ const productsJson = json('products');
 const productsController = {
   listAll: (req, res) => {
     let products = productsJson.all();
-    return res.send('./products/list', { products });
+    return res.render('./products/list', { products: products });
   },
 
   new: (req, res) => {
@@ -22,9 +22,9 @@ const productsController = {
       price: req.body.price,
       stock: req.body.stock,
     };
-    console.log(product);
+
     let productID = productsJson.create(product);
-    return res.render('./products/detail/' + productID);
+    return res.redirect('./detail/' + productID);
   },
 
   show: (req, res) => {
