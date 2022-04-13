@@ -13,7 +13,7 @@ const productsController = {
   },
 
   save: (req, res) => {
-    const product = {
+    let product = {
       timestamp: Date.now(),
       name: req.body.name,
       description: req.body.description,
@@ -40,7 +40,7 @@ const productsController = {
   },
 
   update: (req, res) => {
-    const product = {
+    let product = {
       timestamp: Date.now(),
       name: req.body.name,
       description: req.body.description,
@@ -49,9 +49,17 @@ const productsController = {
       price: req.body.price,
       stock: req.body.stock,
     };
-
+    console.log(product);
     let productID = productsJson.update(product);
-    return res.redirect('./detail/' + productID);
+    return res.redirect('../detail/' + productID);
+  },
+
+  delete: (req, res) => {
+    let productToDelete = productsJson.find(req.params.id);
+    let productDeleted = productsJson.delete(productToDelete);
+    res.render('./products/delete/' + productDeleted, {
+      productDeleted: productDeleted,
+    });
   },
 };
 

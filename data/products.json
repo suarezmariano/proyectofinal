@@ -18,5 +18,15 @@
     "price": "345",
     "stock": "4566",
     "id": 2
+  },
+  {
+    "timestamp": 1649888538947,
+    "name": "Caja",
+    "description": "Caja de regalo",
+    "code": "A2",
+    "image": "https://media.istockphoto.com/photos/carboard-box-wclippping-path-picture-id157318026?k=20&m=157318026&s=612x612&w=0&h=mTVCRfqtS2zKtbfKu_duQy5mvegvJqs8Z7mgQlZ06ck=",
+    "price": "453",
+    "stock": "3234",
+    "id": 3
   }
 ]

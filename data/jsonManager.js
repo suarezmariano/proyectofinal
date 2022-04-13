@@ -62,6 +62,13 @@ let manager = (name) => {
 
       return item.id;
     },
+
+    delete(id) {
+      let items = this.readFile();
+      let updatedItems = items.filter((item) => item.id != id);
+
+      this.writeFile(updatedItems);
+    },
   };
 };
 
