@@ -9,12 +9,20 @@
           class="card-img-top"
           alt="image"
         />
-        <div class="card-body">
-          <h5 class="card-title"><%= productDetail.name %></h5>
-          <p class="card-text"><%= productDetail.description %></p>
-          <a href="./list" class="btn btn-primary">Volver</a>
-        </div>
+        <h5 class="card-title"><%= productDetail.name %></h5>
+        <p class="card-text"><%= productDetail.description %></p>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Código de producto: <%= productDetail.code %>
+          </li>
+          <li class="list-group-item">
+            Unidades en Stock: <%= productDetail.stock %>
+          </li>
+        </ul>
+        <div class="card-footer">Precio: $ <%= productDetail.price %></div>
       </div>
+      <a href="/api/products/" class="btn btn-primary">Volver</a>
     </div>
   </body>
 </html>
