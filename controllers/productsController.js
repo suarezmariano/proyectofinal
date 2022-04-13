@@ -30,7 +30,7 @@ const productsController = {
   show: (req, res) => {
     let productDetail = productsJson.find(req.params.id);
 
-    res.send('./products/detail', { productDetail });
+    res.render('./products/detail', { productDetail: productDetail });
   },
 };
 
