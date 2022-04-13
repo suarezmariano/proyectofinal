@@ -24,13 +24,13 @@ const productsController = {
     };
     console.log(product);
     let productID = productsJson.create(product);
-    return res.render('./product/' + productID);
+    return res.render('./products/detail/' + productID);
   },
 
   show: (req, res) => {
-    let product = productsJson.find(req.params.id);
+    let productDetail = productsJson.find(req.params.id);
 
-    res.send('./products/detail', { product });
+    res.send('./products/detail', { productDetail });
   },
 };
 

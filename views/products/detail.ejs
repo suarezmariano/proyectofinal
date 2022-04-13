@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+  <body>
+    <div class="container">
+      <div class="card" style="width: 18rem">
+        <img
+          src="<%= productDetail.image %>"
+          class="card-img-top"
+          alt="image"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= productDetail.name %></h5>
+          <p class="card-text"><%= productDetail.description %></p>
+          <a href="./list" class="btn btn-primary">Volver</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
