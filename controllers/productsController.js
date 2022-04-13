@@ -32,6 +32,27 @@ const productsController = {
 
     res.render('./products/detail', { productDetail: productDetail });
   },
+
+  edit: (req, res) => {
+    let productID = req.params.id;
+    let productToEdit = productsJson.find(productID);
+    res.render('./products/update', { productToEdit: productToEdit });
+  },
+
+  update: (req, res) => {
+    const product = {
+      timestamp: Date.now(),
+      name: req.body.name,
+      description: req.body.description,
+      code: req.body.code,
+      image: req.body.image,
+      price: req.body.price,
+      stock: req.body.stock,
+    };
+
+    let productID = productsJson.update(product);
+    return res.redirect('./detail/' + productID);
+  },
 };
 
 module.exports = productsController;

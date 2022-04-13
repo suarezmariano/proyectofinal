@@ -24,10 +24,10 @@ let manager = (name) => {
 
     generateId() {
       let file = this.readFile();
-      let row = file.pop();
+      let item = file.pop();
 
-      if (row) {
-        return ++row.id;
+      if (item) {
+        return ++item.id;
       }
 
       return 1;
@@ -35,17 +35,32 @@ let manager = (name) => {
 
     find(id) {
       let file = this.readFile();
-      return file.find((row) => row.id == id);
+      return file.find((item) => item.id == id);
     },
 
-    create(row) {
+    create(item) {
       let file = this.readFile();
-      row.id = this.generateId();
-      file.push(row);
+      item.id = this.generateId();
+      file.push(item);
 
       this.writeFile(file);
 
-      return row.id;
+      return item.id;
+    },
+
+    update(item) {
+      let file = this.readFile();
+      let updatedItems = file.map((eachItem) => {
+        if (eachItem.id == item.id) {
+          return item;
+        }
+
+        return eachItem;
+      });
+
+      this.writeFile(updatedItems);
+
+      return item.id;
     },
   };
 };
