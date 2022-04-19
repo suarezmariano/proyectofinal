@@ -24,6 +24,10 @@ const cartRouter = require('./routes/cart');
 
 app.use('/api/products', productsRouter);
 
+app.use('/', (req, res) => {
+  res.redirect('/api/products');
+});
+
 app.use((req, res, next) => {
   res.status(404).render('not-found');
 });
