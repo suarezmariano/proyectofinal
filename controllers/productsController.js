@@ -49,7 +49,7 @@ const productsController = {
       price: req.body.price,
       stock: req.body.stock,
     };
-    console.log(product);
+
     let productID = productsJson.update(product);
     return res.redirect('../detail/' + productID);
   },

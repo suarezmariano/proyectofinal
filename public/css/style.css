@@ -1,3 +1,8 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .container,
 .card-buttons {
   display: flex;

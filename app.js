@@ -23,6 +23,7 @@ const productsRouter = require('./routes/products');
 const cartRouter = require('./routes/cart');
 
 app.use('/api/products', productsRouter);
+app.use('/cart', cartRouter);
 
 app.use('/', (req, res) => {
   res.redirect('/api/products');
