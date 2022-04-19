@@ -1,13 +1,13 @@
-header {
-  display: flex;
-  flex-wrap: wrap;
-}
-
+.header-links,
 .container,
 .card-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.header-links {
+  margin: 20px 100px;
 }
 
 .titles {

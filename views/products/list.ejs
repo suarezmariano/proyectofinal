@@ -7,7 +7,7 @@
     <div class="container">
       <% for (let i = 0; i< products.length; i++) { %>
       <div class="card" style="width: 18rem">
-        <a href="./detail/<%= products[i].id %>">
+        <a href="./products/detail/<%= products[i].id %>">
           <img
             src="<%= products[i].image %>"
             class="card-img-top"
@@ -17,11 +17,13 @@
             <h5 class="card-title"><%= products[i].name %></h5>
             <p class="card-text"><%= products[i].description %></p>
             <div class="card-buttons">
-              <a href="./edit/<%= products[i].id %>" class="btn btn-primary"
+              <a
+                href="./products/edit/<%= products[i].id %>"
+                class="btn btn-primary"
                 >Actualizar</a
               >
               <form
-                action="/api/products/delete/<%=products[i].id %>?_method=DELETE"
+                action="api/products/delete/<%=products[i].id %>?_method=DELETE"
                 method="POST"
               >
                 <button type="submit" class="btn btn-primary">Eliminar</button>
